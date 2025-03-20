@@ -1,0 +1,13 @@
+{
+  "servers": [
+    {
+      "name": "aliyun",
+      "host": "120.76.42.29",
+      "port": 22,
+      "username": "Administrator",
+      "password": "aA712126",
+      "localPath": "C:/Users/cai/Desktop",
+      "remotePath": "D:/"
+    }
+  ]
+}
