@@ -45,14 +45,14 @@ if __name__ == '__main__':
     ])
 
     trainset = torchvision.datasets.CIFAR10(
-        root='./data', train=True, download=True, transform=transform_train)
+        root='./data', train=True, download=False, transform=transform_train)
     trainloader = torch.utils.data.DataLoader(
-        trainset, batch_size=2000, shuffle=True, num_workers=2)
+        trainset, batch_size=250, shuffle=True, num_workers=2)
 
     testset = torchvision.datasets.CIFAR10(
-        root='./data', train=False, download=True, transform=transform_test)
+        root='./data', train=False, download=False, transform=transform_test)
     testloader = torch.utils.data.DataLoader(
-        testset, batch_size=300, shuffle=False, num_workers=2)
+        testset, batch_size=200, shuffle=False, num_workers=2)
 
     classes = ('plane', 'car', 'bird', 'cat', 'deer',
             'dog', 'frog', 'horse', 'ship', 'truck')
@@ -176,7 +176,7 @@ if __name__ == '__main__':
     print("best_acc:"+str(best_acc))
 
 
-    for epoch in range(start_epoch, start_epoch+50):
+    for epoch in range(start_epoch, start_epoch+20):
         x.append(epoch)
         y.append(train(epoch))
         z.append(test(epoch))
@@ -188,4 +188,4 @@ if __name__ == '__main__':
     plt.plot(x,z,label='test_acc')
 
     plt.savefig('./resnet18-'+str(int(x[-1]))+'_loss+'+str(int(gg))+'.png')
-    plt.show()
+   
